@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 from PIL import Image
-from sklearn import load_iris
+from sklearn import iris.csv
 from sklearn.svm import SVC
 
 model = pickle.load(open('model.pkl', 'rb'))
@@ -29,7 +29,7 @@ features = pd.DataFrame(data, index=[0])
 dt.subheader('Parameter Inputan')
 st.write(DataFrame)
 
-iris = datasets.load_iris()
+iris = datasets.iris()
 X = iris.data
 Y = iris.target
 model = SVC()
