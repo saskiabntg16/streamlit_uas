@@ -30,8 +30,6 @@ data = {'PanjangSepal': PanjangsSepal,
      
 features = pd.DataFrame(data, index=[0]) 
 
-return features
-
 df = input_user()
 
 dt.subheader('Parameter Inputan')
