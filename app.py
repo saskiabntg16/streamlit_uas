@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import pickle
 from PIL import Image
+from sklearn import datasets
+from sklearn.svm import SVC
 
 model = pickle.load(open('model.pkl', 'rb'))
 
@@ -11,7 +13,9 @@ st.write("NIM : 2019230047")
 
 img = Image.open ('iris.png')
 st.image(img, use_column_width=False)
-st.write("Please insert values, to get Iris class prediction")
+st.write("Please Vnsert Values, to Get Iris Class prediction:")
+
+def input_user():
 
 SepalLengthCm = st.slider('SepalLengthCm:', 2.0, 6.0)
 SepalWidthCm = st.slider('SepalWidthCm:', 0.0, 5.0)
@@ -23,3 +27,27 @@ data = {'SepalLengthCm': SepalLengthCm,
         'PetalWidthCm': PetalWidthCm}
 
 features = pd.DataFrame(data, index=[0])
+
+df = input_user()
+
+dt.subheader('Parameter Inputan')
+st.write(df)
+
+iris = datasets.iris.csv()
+X = iris.data
+Y = iris.target
+model = SVC()
+model.fit(X,Y)
+
+model = pickle.load(open('model.pkl', 'rb'))
+prediksi = model.predict(df)
+prediksi_proba = model.predict.proba(df)
+
+st.subheader('Label Kelas dan Nomor Indeks Sesuai Inputan')
+st.write(iris.target_names)
+
+st.subheader('Prediksi (Hasil Klasifikasi)')
+st.write(iris.target_names[prediksi])
+
+st.subheader('Probabilitas Hasil Predikasi(klasifikasi)')
+st.write(predikasi_proba)
