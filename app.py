@@ -14,13 +14,11 @@ Nama: **Saskia Bintang Maharani**  |   NIM : **2019230047**
 img = Image.open ('iris.png')
 st.image(img, use_column_width=False)
 
-st.sidebar.header('Parameter Value')
-
 def input_user():
-SepalLengthCm=st.sidebar.slider('SepalLength:', 2.0, 6.0)
-SepalWidthCm=st.sidebar.slider('SepalWidthCm:', 0.0, 5.0)
-PetalLengthCm=st.sidebar.slider('PetalLengthCm', 0.0, 3.0)
-PetalWidthCm=st.sidebar.slider('PetalWidthCm:', 0.0, 2.0)
+SepalLengthCm=st.slider('SepalLength:', 2.0, 6.0)
+SepalWidthCm=st.slider('SepalWidthCm:', 0.0, 5.0)
+PetalLengthCm=st.slider('PetalLengthCm', 0.0, 3.0)
+PetalWidthCm=st.slider('PetalWidthCm:', 0.0, 2.0)
 
 data = {'SepalLength':SepalLengthCm,
         'SepalWidth':SepalWidthCm,
