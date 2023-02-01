@@ -26,16 +26,14 @@ data = {'SepalLengthCm': SepalLengthCm,
 
 features = pd.DataFrame(data, index=[0])
 
-btn = st.button("predict")
+prediksi = model.predict(df)
+prediksi_proba = model.predict.proba(df)
 
-if btn:
-	pred = model.predict(np.array([a,b,c,d]).reshape(1,-1))
-	pred = labels[np.argmax(pred)]
-	st.subheader(pred)
+st.subheader('Label Kelas dan Nomor Indeks Sesuai Inputan')
+st.write(iris.target_names)
 
-	if pred=="Iris Setosa":
-		st.image("iris.png")
-	elif pred=="Iris Versicolour":
-		st.image("iris.png")
-	else:	
-		st.image("iris.png")
+st.subheader('Prediksi (Hasil Klasifikasi)')
+st.write(iris.target_names[prediksi])
+
+st.subheader('Probabilitas Hasil Predikasi(klasifikasi)')
+st.write(prediksi_proba)
