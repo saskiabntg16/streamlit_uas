@@ -18,15 +18,15 @@ st.image(img, use_column_width=False)
 st.sidebar.header('Parameter Value')
 
 def input_user():
-    PanjangSepal = st.slider('PanjangSepal:', 2.0, 6.0)
-    LebarSepal= st.slider('LebarSepal:', 0.0, 5.0)
-    PanjangPetal = st.slider('PanjangPetal',0.0, 3.0)
-    LebarPetal = st.slider('LebarPetal:', 0.0, 2.0)
+    SepalWidthCm = st.slider('SepalWidthCm:', 2.0, 6.0)
+    SepalLengthCm= st.slider('SepalLengthCm:', 0.0, 5.0)
+    PetalWidthCm = st.slider('PetalWidthCm',0.0, 3.0)
+    PetalLengthCm = st.slider('PetalLengthCm:', 0.0, 2.0)
 
-data = {'PanjangSepal': PanjangSepal,
-            'LebarSepal': LebarSepal,
-            'PanjangPetal': PanjangPetal,
-            'LebarPetal': LebarPetal}
+data = {'SepalWidthCm': SepalWidthCm,
+            'SepalLengthCm': SepalLengthCm,
+            'PetalWidthCm': PetalWidthCm,
+            'PetalLengthCm': PetalLengthCm}
      
 features = pd.DataFrame(data, index=[0]) 
 
