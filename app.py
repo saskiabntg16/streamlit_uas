@@ -30,24 +30,5 @@ features = pd.DataFrame(data, index=[0])
 
 df = input_user()
 
-dt.subheader('Parameter Inputan')
+st.subheader('Parameter Inputan')
 st.write(df)
-
-iris = datasets.iris.csv()
-X = iris.data
-Y = iris.target
-model = SVC()
-model.fit(X,Y)
-
-model = pickle.load(open('model.pkl', 'rb'))
-prediksi = model.predict(df)
-prediksi_proba = model.predict.proba(df)
-
-st.subheader('Label Kelas dan Nomor Indeks Sesuai Inputan')
-st.write(iris.target_names)
-
-st.subheader('Prediksi (Hasil Klasifikasi)')
-st.write(iris.target_names[prediksi])
-
-st.subheader('Probabilitas Hasil Predikasi(klasifikasi)')
-st.write(predikasi_proba)
