@@ -6,8 +6,8 @@ from PIL import Image
 model = pickle.load(open('model.pkl', 'rb'))
 
 st.header("Iris Classification:")
-image = Image.open('iris.png')
-st.image(img, use_column_width=True,format='PNG')
+img = Image.open ('iris.png')
+st.image(img, use_column_width=False)
 st.write("Please insert values, to get Iris class prediction")
 
 SepalLengthCm = st.slider('SepalLengthCm:', 2.0, 6.0)
