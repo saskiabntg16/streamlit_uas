@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 from PIL import Image
 
-model = pickle.load(open('IRIS-model.pkl', 'rb'))
+model = pickle.load(open('model.pkl', 'rb'))
 
 st.header("Iris Classification:")
 image = Image.open('iris.png')
