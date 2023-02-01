@@ -1,21 +1,15 @@
 import streamlit as st
 import pandas as pd
+import pickle
 from PIL import Image
-from sklearn import datasets
-from sklearn.svm import SVC
-import pickle 
 
-st.write("""
-# WebApp Klasifikasi Iris Menggunakan Streamlit
-Nama: **Saskia Bintang Maharani**  |   NIM : **2019230047**
-"""
-)
+model = pickle.load(open('IRIS-model.pkl', 'rb'))
 
-img = Image.open ('iris.png')
-st.image(img, use_column_width=False)
+st.header("Iris Classification:")
+image = Image.open('image.png')
+st.image(image, use_column_width=True,format='PNG')
+st.write("Please insert values, to get Iris class prediction")
 
-def input_user():
-        
 SepalLengthCm = st.slider('SepalLengthCm:', 2.0, 6.0)
 SepalWidthCm = st.slider('SepalWidthCm:', 0.0, 5.0)
 PetalLengthCm = st.slider('PetalLengthCm',0.0, 3.0)
@@ -24,33 +18,12 @@ data = {'SepalLengthCm': SepalLengthCm,
         'SepalWidthCm': SepalWidthCm,
         'PetalLengthCm': PetalLengthCm,
         'PetalWidthCm': PetalWidthCm}
-     
-fitur = pd.DataFrame(data, index=[0]) 
-return fitur
 
-df = input_user()
+features = pd.DataFrame(data, index=[0])
 
-dt.subheader('Parameter Inputan')
-st.write(df)
-
-iris = datasets.load_iris()
-X = iris.data
-Y = iris.target
-model = SVC()
-model.fit(X,Y)
-
-model = pickle.load(open('model.pkl', 'rb'))
-prediksi = model.predict(df)
-prediksi_proba = model.predict.proba(df)
-
-st.subheader('Label Kelas dan Nomor Indeks Sesuai Inputan')
-st.write(iris.target_names)
-
-st.subheader('Prediksi (Hasil Klasifikasi)')
-st.write(iris.target_names[prediksi])
-
-st.subheader('Probabilitas Hasil Predikasi(klasifikasi)')
-st.write(predikasi_proba)
+pred_proba = model.predict_proba(features)
+#or
+prediction = model.predict(features)
 
 st.subheader('Prediction Percentages:') 
 st.write('**Probablity of Iris Class being Iris-setosa is ( in % )**:',pred_proba[0][0]*100)
