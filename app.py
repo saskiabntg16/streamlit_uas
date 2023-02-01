@@ -32,27 +32,3 @@ species = {'Iris Setosa', 'Iris Versicolor', 'Iris Virginica'}
 
 st.subheader('Parameter Inputan')
 st.write(features)
-
-iris = datasets.load_iris()
-X = iris.data
-Y = iris.species
-model = SVC()
-model.fit(X,Y)
-
-model = pickle.load(open('model.pkl', 'rb'))
-prediksi = model.predict(features)
-prediksi_proba = model.predict_proba(features)
-
-st.subheader('Label Kelas dan Nomor Indeks Sesuai Inputan')
-st.write(iris.species)
-
-st.subheader('Prediksi (Hasil Klasifikasi)')
-st.write(iris.species[prediksi])
-
-st.subheader('Probabilitas Hasil Predikasi(klasifikasi)')
-st.write(prediksi_proba)
-
-st.subheader('Prediction Percentages:') 
-st.write('**Probablity of Iris Class being Iris-setosa is ( in % )**:',pred_proba[0][0]*100)
-st.write('**Probablity of Isis Class being Iris-versicolor is ( in % )**:',pred_proba[0][1]*100)
-st.write('**Probablity of Isis Class being Iris-virginica ( in % )**:',pred_proba[0][2]*100)
