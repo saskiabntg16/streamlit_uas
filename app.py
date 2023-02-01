@@ -5,7 +5,10 @@ from PIL import Image
 
 model = pickle.load(open('model.pkl', 'rb'))
 
-st.header("Iris Classification:")
+st.header("IRIS CLASSIFICATION PREDICTION")
+st.write("NAMA : SASKIA BINTANG MAHARANI")
+st.write("NIM : 2019230047")
+
 img = Image.open ('iris.png')
 st.image(img, use_column_width=False)
 st.write("Please insert values, to get Iris class prediction")
@@ -23,7 +26,8 @@ features = pd.DataFrame(data, index=[0])
 
 pred_proba = model.predict_proba(features)
 
-st.subheader('Prediction Percentages:') 
+st.subheader('Prediction Percentages:')
+
 st.write('**Probablity of Iris Class being Iris-setosa is ( in % )**:',pred_proba[0][0]*100)
 st.write('**Probablity of Isis Class being Iris-versicolor is ( in % )**:',pred_proba[0][1]*100)
 st.write('**Probablity of Isis Class being Iris-virginica ( in % )**:',pred_proba[0][2]*100)
