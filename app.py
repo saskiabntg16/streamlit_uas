@@ -33,7 +33,7 @@ st.write(features)
 
 iris = datasets.load_iris()
 X = iris.data
-Y = iris.Species
+Y = iris.species
 model = SVC()
 model.fit(X,Y)
 
@@ -42,10 +42,10 @@ prediksi = model.predict(features)
 prediksi_proba = model.predict_proba(features)
 
 st.subheader('Label Kelas dan Nomor Indeks Sesuai Inputan')
-st.write(iris.Specied)
+st.write(iris.species)
 
 st.subheader('Prediksi (Hasil Klasifikasi)')
-st.write(iris.Species[prediksi])
+st.write(iris.species[prediksi])
 
 st.subheader('Probabilitas Hasil Predikasi(klasifikasi)')
 st.write(prediksi_proba)
