@@ -23,7 +23,7 @@ def input_user():
     PanjangPetal = st.slider('PanjangPetal',0.0, 3.0)
     LebarPetal = st.slider('LebarPetal:', 0.0, 2.0)
 
-data = {'PanjangSepal': PanjangsSepal,
+data = {'PanjangSepal': PanjangSepal,
             'LebarSepal': LebarSepal,
             'PanjangPetal': PanjangPetal,
             'LebarPetal': LebarPetal}
@@ -38,7 +38,7 @@ st.write(df)
 iris = datasets.load_iris()
 X = iris.data
 Y = iris.target
-model = GaussianNB()
+model = SVC()
 model.fit(X,Y)
 
 model = pickle.load(open('model.pkl', 'rb'))
