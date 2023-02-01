@@ -22,10 +22,10 @@ SepalWidthCm = st.sidebar.slider('SepalWidthCm:', 0.0, 5.0)
 PetalLengthCm = st.sidebar.slider('PetalLengthCm', 0.0, 3.0)
 PetalWidthCm = st.sidebar.slider('PetalWidthCm:', 0.0, 2.0)
 
-data = {'Sepal Length': SepalLengthCm,
-        'Sepal Width': SepalWidthCm,
-        'Petal Length': PetalLengthCm,
-        'Petal Width': PetalWidthCm}
+data = {'SepalLength': SepalLengthCm,
+        'SepalWidth': SepalWidthCm,
+        'PetalLength': PetalLengthCm,
+        'PetalWidth': PetalWidthCm}
      
 features = pd.DataFrame(data, index=[0]) 
 return features
