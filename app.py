@@ -6,7 +6,7 @@ from PIL import Image
 model = pickle.load(open('IRIS-model.pkl', 'rb'))
 
 st.header("Iris Classification:")
-image = Image.open('image.png')
+image = Image.open('iris.png')
 st.image(image, use_column_width=True,format='PNG')
 st.write("Please insert values, to get Iris class prediction")
 
@@ -22,7 +22,7 @@ data = {'SepalLengthCm': SepalLengthCm,
 features = pd.DataFrame(data, index=[0])
 
 pred_proba = model.predict_proba(features)
-#or
+or
 prediction = model.predict(features)
 
 st.subheader('Prediction Percentages:') 
