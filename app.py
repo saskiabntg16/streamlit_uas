@@ -27,7 +27,7 @@ data = {'SepalLengthCm': SepalLengthCm,
 features = pd.DataFrame(data, index=[0])
 
 st.subheader('Parameter Inputan')
-st.write(DataFrame)
+st.write(df)
 
 iris = datasets.load_iris()
 X = iris.data
@@ -36,8 +36,8 @@ model = SVC()
 model.fit(X,Y)
 
 model = pickle.load(open('model.pkl', 'rb'))
-prediksi = model.predict(DataFrame)
-prediksi_proba = model.predict.proba(DataFrame)
+prediksi = model.predict(df)
+prediksi_proba = model.predict.proba(df)
 
 st.subheader('Label Kelas dan Nomor Indeks Sesuai Inputan')
 st.write(iris.target_names)
