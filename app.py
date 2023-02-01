@@ -15,7 +15,7 @@ img = Image.open ('iris.png')
 st.image(img, use_column_width=False)
 st.write("Please Insert Values, to Get Iris Class prediction:")
 
-st.sidebar.subheader('Parameter Inputan')
+st.sidebar.header('Parameter Value Prediction')
 
 SepalLengthCm = st.sidebar.slider('SepalLengthCm:', 2.0, 6.0)
 SepalWidthCm = st.sidebar.slider('SepalWidthCm:', 0.0, 5.0)
