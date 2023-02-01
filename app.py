@@ -29,7 +29,6 @@ data = {'PanjangSepal': PanjangsSepal,
             'LebarPetal': LebarPetal}
      
 features = pd.DataFrame(data, index=[0]) 
-return features
 
 df = input_user()
 
