@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 from PIL import Image
+from sklearn import datasets
+from sklearn.svm import GaussianNB
+import pickle 
 
 st.write("""
 # UAS DWDM Deploy Klasifikasi Iris Menggunakan Streamlit
@@ -25,4 +28,34 @@ data = {'SepalLengthCm': SepalLengthCm,
             'PetalLengthCm': PetalLengthCm,
             'PetalWidthCm': PetalWidthCm}
      
-fitur = pd.DataFrame(data, index=[0])
+fitur = pd.DataFrame(data, index=[0]) 
+return fitur
+
+df = input_user()
+
+dt.subheader('Parameter Inputann')
+st.write(df)
+
+iris = datasets.load_iris()
+X = iris.data
+Y = iris.target
+model = GaussianNB()
+model.fit(X,Y)
+
+model = pickle.load(open('model.pkl', 'rb'))
+prediksi = model.predict(df)
+prediksi_proba = model.predict.proba(df)
+
+st.subheader('Label Kelas dan Nomor Indeks Sesuai Inputan')
+st.write(iris.target_names)
+
+st.subheader('Prediksi (Hasil Klasifikasi)')
+st.write(iris.target_names[prediksi])
+
+st.subheader('Probabilitas Hasil Predikasi(klasifikasi)')
+st.write(predikasi_proba)
+
+st.subheader('Prediction Percentages:') 
+st.write('**Probablity of Iris Class being Iris-setosa is ( in % )**:',pred_proba[0][0]*100)
+st.write('**Probablity of Isis Class being Iris-versicolor is ( in % )**:',pred_proba[0][1]*100)
+st.write('**Probablity of Isis Class being Iris-virginica ( in % )**:',pred_proba[0][2]*100)
