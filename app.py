@@ -15,6 +15,7 @@ img = Image.open ('iris.png')
 st.image(img, use_column_width=False)
 st.write("Please Insert Values, to Get Iris Class prediction:")
 
+def input():
 SepalLengthCm = st.slider('SepalLengthCm:', 2.0, 6.0)
 SepalWidthCm = st.slider('SepalWidthCm:', 0.0, 5.0)
 PetalLengthCm = st.slider('PetalLengthCm',0.0, 3.0)
@@ -25,6 +26,7 @@ data = {'SepalLengthCm': SepalLengthCm,
         'PetalWidthCm': PetalWidthCm}
 
 features = pd.DataFrame(data, index=[0])
+df = input()
 
 st.subheader('Parameter Inputan')
 st.write(df)
