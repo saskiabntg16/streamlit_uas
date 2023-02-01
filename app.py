@@ -39,7 +39,7 @@ model.fit(X,Y)
 
 model = pickle.load(open('model.pkl', 'rb'))
 prediksi = model.predict(features)
-prediksi_proba = model.predict.proba(features)
+prediksi_proba = model.predict_proba(features)
 
 st.subheader('Label Kelas dan Nomor Indeks Sesuai Inputan')
 st.write(iris.target_names)
