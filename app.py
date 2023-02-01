@@ -26,7 +26,7 @@ data = {'SepalLengthCm': SepalLengthCm,
 
 features = pd.DataFrame(data, index=[0])
 
-dt.subheader('Parameter Inputan')
+st.subheader('Parameter Inputan')
 st.write(DataFrame)
 
 iris = datasets.load_iris()
