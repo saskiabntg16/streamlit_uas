@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 from PIL import Image
-from sklearn import datasets
+from sklearn import load_iris
 from sklearn.svm import SVC
 
 model = pickle.load(open('model.pkl', 'rb'))
@@ -26,8 +26,18 @@ data = {'SepalLengthCm': SepalLengthCm,
 
 features = pd.DataFrame(data, index=[0])
 
-prediksi = model.predict(df)
-prediksi_proba = model.predict.proba(df)
+dt.subheader('Parameter Inputan')
+st.write(DataFrame)
+
+iris = datasets.load_iris()
+X = iris.data
+Y = iris.target
+model = SVC()
+model.fit(X,Y)
+
+model = pickle.load(open('model.pkl', 'rb'))
+prediksi = model.predict(DataFrame)
+prediksi_proba = model.predict.proba(DataFrame)
 
 st.subheader('Label Kelas dan Nomor Indeks Sesuai Inputan')
 st.write(iris.target_names)
@@ -37,3 +47,8 @@ st.write(iris.target_names[prediksi])
 
 st.subheader('Probabilitas Hasil Predikasi(klasifikasi)')
 st.write(prediksi_proba)
+
+st.subheader('Prediction Percentages:') 
+st.write('**Probablity of Iris Class being Iris-setosa is ( in % )**:',pred_proba[0][0]*100)
+st.write('**Probablity of Isis Class being Iris-versicolor is ( in % )**:',pred_proba[0][1]*100)
+st.write('**Probablity of Isis Class being Iris-virginica ( in % )**:',pred_proba[0][2]*100)
