@@ -41,4 +41,3 @@ if len(self.__data) or self._refresh():
 self._topology._check_implicit_session_support()
 self._check_session_support()
 readable_server_selector, self._settings.server_selection_timeout, None
-% (self._error_message(selector), timeout, self.description)
