@@ -17,10 +17,10 @@ st.image(img, use_column_width=False)
 st.sidebar.header('Parameter Value')
 
 def input_user():
-SepalLengthCm = st.sidebar.slider('SepalLengthCm:', 4.3, 7.9, 5.4)
-SepalWidthCm = st.sidebar.slider('SepalWidthCm:', 2.0, 4.4, 3.4)
-PetalLengthCm = st.sidebar.slider('PetalLengthCm', 1.0, 6.9, 1.3)
-PetalWidthCm = st.sidebar.slider('PetalWidthCm:', 0.1, 2.5, 0.2)
+SepalLengthCm = st.sidebar.slider('SepalLengthCm:', 2.0, 6.0)
+SepalWidthCm = st.sidebar.slider('SepalWidthCm:', 0.0, 5.0)
+PetalLengthCm = st.sidebar.slider('PetalLengthCm', 0.0, 3.0)
+PetalWidthCm = st.sidebar.slider('PetalWidthCm:', 0.0, 2.0)
 
 data = {'Sepal Length': SepalLengthCm,
         'Sepal Width': SepalWidthCm,
@@ -31,3 +31,29 @@ features = pd.DataFrame(data, index=[0])
 return features
 
 df = input_user()
+dt.subheader('Parameter Inputan')
+st.write(df)
+
+iris = datasets.load_iris()
+X = iris.data
+Y = iris.target
+model = SVC()
+model.fit(X,Y)
+
+model = pickle.load(open('model.pkl', 'rb'))
+prediksi = model.predict(df)
+prediksi_proba = model.predict.proba(df)
+
+st.subheader('Label Kelas dan Nomor Indeks Sesuai Inputan')
+st.write(iris.target_names)
+
+st.subheader('Prediksi (Hasil Klasifikasi)')
+st.write(iris.target_names[prediksi])
+
+st.subheader('Probabilitas Hasil Predikasi(klasifikasi)')
+st.write(predikasi_proba)
+
+st.subheader('Prediction Percentages:') 
+st.write('**Probablity of Iris Class being Iris-setosa is ( in % )**:',pred_proba[0][0]*100)
+st.write('**Probablity of Isis Class being Iris-versicolor is ( in % )**:',pred_proba[0][1]*100)
+st.write('**Probablity of Isis Class being Iris-virginica ( in % )**:',pred_proba[0][2]*100)
