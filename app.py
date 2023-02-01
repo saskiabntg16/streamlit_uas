@@ -17,6 +17,6 @@ st.image(img, use_column_width=False)
 st.sidebar.header('Parameter Value')
 
 def input_user():
-SepalLengthCm=st.sidebar.slider('Sepal Length:', 2.0, 6.0)
+SepalLengthCm=st.sidebar.slider('SepalLength:', 2.0, 6.0)
 
 df = input_user()
