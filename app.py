@@ -32,12 +32,13 @@ st.write('**Probablity of Iris Class being Iris-setosa is ( in % )**:',pred_prob
 st.write('**Probablity of Isis Class being Iris-versicolor is ( in % )**:',pred_proba[0][1]*100)
 st.write('**Probablity of Isis Class being Iris-virginica ( in % )**:',pred_proba[0][2]*100)
 
-
 exec(code, module.__dict__)
 list_cursor = list(all_records)
+
 if len(self.__data) or self._refresh():
         self.__session = self.__collection.database.client._ensure_session()
         return self.__start_session(True, causal_consistency=False)
-self._topology._check_implicit_session_support()
-self._check_session_support()
+        self._topology._check_implicit_session_support()
+        self._check_session_support()
+        
 readable_server_selector, self._settings.server_selection_timeout, None
