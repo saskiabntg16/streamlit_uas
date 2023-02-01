@@ -28,7 +28,5 @@ data = {'SepalLengthCm': SepalLengthCm,
 
 features = pd.DataFrame(data, index=[0])
 
-species = {'Iris Setosa', 'Iris Versicolor', 'Iris Virginica'}
-
 st.subheader('Parameter Inputan')
 st.write(features)
